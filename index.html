@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CapModeler - Real Estate Scenario Planning & Waterfall Modeling</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+        
+        .subtitle {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        
+        .subtext {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.85;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #0f172a;
+            padding: 20px 48px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+        
+        .problem {
+            padding: 90px 20px;
+            background: #f8fafc;
+        }
+        
+        .problem h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #0f172a;
+        }
+        
+        .problem-intro {
+            text-align: center;
+            font-size: 1.3rem;
+            color: #475569;
+            max-width: 900px;
+            margin: 0 auto 60px;
+        }
+        
+        .pain-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+        
+        .pain-point {
+            background: white;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 4px solid #dc2626;
+        }
+        
+        .pain-point h3 {
+            color: #0f172a;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .pain-point p {
+            color: #475569;
+            font-size: 1.05rem;
+        }
+        
+        .solution {
+            padding: 90px 20px;
+        }
+        
+        .solution h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #0f172a;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 45px;
+            margin-bottom: 60px;
+        }
+        
+        .feature {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+            color: #0f172a;
+        }
+        
+        .feature p {
+            color: #475569;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        
+        .use-cases {
+            background: #f8fafc;
+            padding: 90px 20px;
+        }
+        
+        .use-cases h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #0f172a;
+        }
+        
+        .use-case-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .use-case {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .use-case h3 {
+            font-size: 1.4rem;
+            color: #1e40af;
+            margin-bottom: 12px;
+        }
+        
+        .pricing {
+            padding: 90px 20px;
+            text-align: center;
+        }
+        
+        .pricing h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: #0f172a;
+        }
+        
+        .price {
+            font-size: 4rem;
+            font-weight: 700;
+            color: #1e40af;
+            margin: 40px 0;
+        }
+        
+        .price span {
+            font-size: 1.6rem;
+            color: #64748b;
+        }
+        
+        .pricing-note {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+        
+        .early-access {
+            padding: 90px 20px;
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .early-access h2 {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+        }
+        
+        .form-container {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        select {
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.05rem;
+        }
+        
+        select {
+            background: white;
+            cursor: pointer;
+        }
+        
+        .submit-button {
+            width: 100%;
+            background: white;
+            color: #0f172a;
+            padding: 20px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .footer {
+            padding: 50px 20px;
+            text-align: center;
+            background: #0f172a;
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .subtext {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="container">
+            <h1>Model Real Estate Scenarios With Complete Confidence</h1>
+            <p class="subtitle">The only platform that connects actuals, forecasts, debt, and waterfall distributions</p>
+            <p class="subtext">Stop juggling 5 Excel files. Model acquisitions, refinancings, recapitalizations, and sales—with complete visibility into cash flow, valuations, and investor returns.</p>
+            <a href="#early-access" class="cta-button">Get Early Access</a>
+        </div>
+    </section>
+
+    <section class="problem">
+        <div class="container">
+            <h2>You're Managing A Portfolio, Not A Spreadsheet</h2>
+            <p class="problem-intro">Yet every strategic decision requires rebuilding models from scratch, reconciling outdated actuals, and hoping your Excel formulas still work.</p>
+            <div class="pain-points">
+                <div class="pain-point">
+                    <h3>Disconnected Data Everywhere</h3>
+                    <p>Actuals are in the accounting system. Budgets in one Excel file. Debt schedules in another. Waterfall models in a third. Nothing talks to each other.</p>
+                </div>
+                <div class="pain-point">
+                    <h3>Scenario Analysis Takes Days</h3>
+                    <p>Your CEO wants to see: "What if we sell property A, refinance property B, and acquire property C?" Each scenario means rebuilding everything manually.</p>
+                </div>
+                <div class="pain-point">
+                    <h3>Cash Forecasts Are Always Stale</h3>
+                    <p>You build a 12-month cash forecast. Two days later you model a potential acquisition and realize you need to rebuild the entire forecast.</p>
+                </div>
+                <div class="pain-point">
+                    <h3>Waterfall Calculations Are Fragile</h3>
+                    <p>Complex promote structures with multiple hurdles, catch-ups, and equity classes. One wrong formula and investor distributions are off.</p>
+                </div>
+                <div class="pain-point">
+                    <h3>No Portfolio-Level View</h3>
+                    <p>You can model individual deals, but seeing how scenarios impact total portfolio value, owner equity, and tax implications requires hours of reconciliation.</p>
+                </div>
+                <div class="pain-point">
+                    <h3>Investor Reports Take Forever</h3>
+                    <p>Quarterly reporting means manually pulling data from 10 different sources, calculating returns, and formatting presentations for LPs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution">
+        <div class="container">
+            <h2>One Platform. Complete Visibility.</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">📊</div>
+                    <h3>Unified Financial Data</h3>
+                    <p>Import actuals and budgets from your accounting system (or upload Excel). Everything stays current. No more reconciling 5 different spreadsheets.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Instant Scenario Modeling</h3>
+                    <p>Model acquisitions, dispositions, refinancings, and recapitalizations. See immediate impact on cash flow, valuations, and returns. Compare scenarios side-by-side.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">💰</div>
+                    <h3>Sophisticated Waterfall Engine</h3>
+                    <p>Handle any structure: simple pref + promote, multi-tier IRR hurdles, American/European waterfalls, catch-ups, lookbacks. Built by CFOs who understand the complexity.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📈</div>
+                    <h3>Dynamic Cash Forecasting</h3>
+                    <p>12-18-24 month cash projections that automatically update when you model new scenarios. Never manually rebuild forecasts again.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">🏢</div>
+                    <h3>Portfolio Valuation Impact</h3>
+                    <p>See how scenarios affect individual property values, total portfolio NAV, owner equity positions, and tax basis in real-time.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">📑</div>
+                    <h3>Investor-Ready Outputs</h3>
+                    <p>Generate professional reports with IRR by class, cash-on-cash returns, equity multiples, and distribution schedules. Export to PDF or Excel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="use-cases">
+        <div class="container">
+            <h2>Built For Real-World Decisions</h2>
+            <div class="use-case-grid">
+                <div class="use-case">
+                    <h3>Recapitalization Analysis</h3>
+                    <p>Should you recap the fund? Model different equity contributions, see waterfall impacts, understand who benefits at various exit scenarios.</p>
+                </div>
+                <div class="use-case">
+                    <h3>Sale vs Hold</h3>
+                    <p>Compare selling now versus holding 2-5 years. Factor in debt paydown, NOI growth, market cap rate assumptions, and investor return profiles.</p>
+                </div>
+                <div class="use-case">
+                    <h3>Refinancing Scenarios</h3>
+                    <p>Model refinance timing and terms. See impact on cash flow, debt service coverage, yield maintenance penalties, and distribution capacity.</p>
+                </div>
+                <div class="use-case">
+                    <h3>Acquisition Planning</h3>
+                    <p>Underwrite new deals with complete context: how does this acquisition affect portfolio cash position, leverage ratios, and overall returns?</p>
+                </div>
+                <div class="use-case">
+                    <h3>Portfolio Optimization</h3>
+                    <p>Which properties to sell, refinance, or hold? Test multiple combinations and see total portfolio impact on returns and cash flow.</p>
+                </div>
+                <div class="use-case">
+                    <h3>Investor Reporting</h3>
+                    <p>Quarterly LP updates with accurate performance metrics, distribution waterfalls, and forward-looking projections—all from live data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <h2>Transparent Pricing</h2>
+            <div class="price">$599<span>/month</span></div>
+            <p class="pricing-note">
+                Unlimited properties. Unlimited scenarios. Unlimited users. Cancel anytime.
+            </p>
+            <p class="pricing-note" style="font-weight: 600; color: #1e40af;">
+                Early access members lock in $499/month pricing forever + priority feature input.
+            </p>
+        </div>
+    </section>
+
+    <section id="early-access" class="early-access">
+        <div class="container">
+            <h2>Join The Beta Waitlist</h2>
+            <p style="font-size: 1.3rem; margin-bottom: 50px;">
+                We're launching Q2 2026. Be among the first real estate CFOs to use CapModeler.
+            </p>
+            <div class="form-container">
+                <form id="waitlistForm">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Work Email" required>
+                    <input type="text" id="company" placeholder="Company Name" required>
+                    <input type="text" id="title" placeholder="Job Title" required>
+                    <select id="aum" required>
+                        <option value="">Portfolio Size (AUM)</option>
+                        <option value="under50m">Under $50M</option>
+                        <option value="50-250m">$50M - $250M</option>
+                        <option value="250-500m">$250M - $500M</option>
+                        <option value="500m-1b">$500M - $1B</option>
+                        <option value="over1b">Over $1B</option>
+                    </select>
+                    <select id="properties" required>
+                        <option value="">Number of Properties</option>
+                        <option value="1-5">1-5</option>
+                        <option value="6-15">6-15</option>
+                        <option value="16-50">16-50</option>
+                        <option value="over50">50+</option>
+                    </select>
+                    <button type="submit" class="submit-button">Join the Waitlist</button>
+                </form>
+                <p id="thankYou" style="display: none; margin-top: 30px; font-size: 1.3rem;">
+                    ✓ You're on the list! We'll reach out soon to learn more about your specific needs.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="footer">
+        <div class="container">
+            <p style="font-size: 1.1rem;">&copy; 2026 CapModeler. Built by real estate CFOs who live this problem daily.</p>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitButton = document.querySelector('.submit-button');
+            submitButton.textContent = 'Submitting...';
+            submitButton.disabled = true;
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                title: document.getElementById('title').value,
+                aum: document.getElementById('aum').value,
+                properties: document.getElementById('properties').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                const response = await fetch('https://hooks.zapier.com/hooks/catch/26271498/ulrtl3u/', {
+                    method: 'POST',
+                    body: JSON.stringify(formData)
+                });
+                
+                if (response.ok) {
+                    document.getElementById('waitlistForm').style.display = 'none';
+                    document.getElementById('thankYou').style.display = 'block';
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (error) {
+                alert('Something went wrong. Please email your info to contact@capmodeler.com');
+                submitButton.textContent = 'Join the Waitlist';
+                submitButton.disabled = false;
+            }
+        });
+    </script>
+</body>
+</html>
